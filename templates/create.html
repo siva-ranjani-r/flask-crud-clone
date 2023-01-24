@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Insert and update query</title>
+    </head>
+    <body>
+        {{data}}
+        <form method="POST" action="{{url_for('update1',id=data.id)}}">
+            <input type="number" name="id" value="{{data.id}}"  placeholder="Enter the id">
+            <input type="text" name="username" value="{{data.username}}" placeholder="Enter the username">
+            <input type="submit" value="submit">
+        </form>
+    </body>
+</html>
