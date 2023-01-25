@@ -3,6 +3,15 @@ import sqlite3 as sql
 
 app=Flask("__name__")
 
+@app.route("/")
+def show():
+    conn=sql.connect("crud.db")
+    conn.row_factory=sql.Row
+    cur=conn.cursor()
+    cur.execute("select * from data")
+    data=cur.fetchall()
+    return render_template("table.html",data=data)
+
 @app.route("/",methods=["POST","GET"])
 def insert():
     if request.form.get('id')!=None:
